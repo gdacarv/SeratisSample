@@ -22,12 +22,14 @@ public class PersonJsonParser extends JsonParser<List<Person>> {
 		this.mClass = cls;
 	}
 
+	public PersonJsonParser() {
+	}
+
 	@Override
 	protected List<Person> handleJson(com.fasterxml.jackson.core.JsonParser jsonParser) {
 		List<Person> persons = new ArrayList<Person>();
 		try {
-			jsonParser.nextToken();
-			jsonParser.nextToken();
+			while (jsonParser.nextToken()!= JsonToken.START_ARRAY);
 			JsonToken token;
 			long id = 0;
 			String name = null;
@@ -37,6 +39,8 @@ public class PersonJsonParser extends JsonParser<List<Person>> {
 						persons.add(new Patient(id, name));
 					else if(mClass == Provider.class)
 						persons.add(new Provider(id, name));
+					else
+						persons.add(new Person(id, name));
 				} else if(token == JsonToken.FIELD_NAME) {
 					String namefield = jsonParser.getCurrentName();
 					jsonParser.nextToken(); // move to value

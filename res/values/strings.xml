@@ -2,10 +2,9 @@
 <resources>
 
     <string name="app_name">Seratis Sample</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
     <string name="patients">Patients</string>
     <string name="providers">Providers</string>
     <string name="empty_msg">Sorry, no %s founded.</string>
+    <string name="title_activity_associated_listing" formatted="false">%s\'s %s</string>
 
 </resources>

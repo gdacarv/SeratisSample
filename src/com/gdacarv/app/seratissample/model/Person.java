@@ -22,4 +22,12 @@ public class Person {
 	public String toString() {
 		return getName();
 	}
+
+	public String getFirstName() {
+		int i = mName.indexOf(' ');
+		if(i < 0)
+			return mName;
+		else
+			return mName.substring(0, i);
+	}
 }
